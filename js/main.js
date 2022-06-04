@@ -46,3 +46,11 @@ function printOneTarea(pTarea, pDom) {
 }
 
 printAllTareas(listaTareas, sectionTarea)
+
+// Buscar semánticamente
+
+searchInput.addEventListener('keydown', addTarea);
+
+function addTarea(event) {
+    console.log(event.target.value);
+}
