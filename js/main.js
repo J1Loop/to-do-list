@@ -62,4 +62,21 @@ function getSearch(event) {
     // console.log(event.target.value);
     let search = event.target.value;
     printAllTareas(filterByName(listaTareas, search), sectionTarea)
+<<<<<<< HEAD
+=======
+}
+
+// Filtrar
+
+// Filtrado semántico
+
+function filterByName(pList, pBusqueda) {
+    return pList.filter(tarea => tarea.name.toLowerCase().includes(pBusqueda.toLowerCase()));
+}
+
+// Filtrado por prioridad
+
+function filterByPriority(pList, pPriority) {
+    return pList.filter(tarea => tarea.priority === pPriority);
+>>>>>>> feature/JS-Filters
 }
