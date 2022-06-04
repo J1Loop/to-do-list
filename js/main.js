@@ -62,8 +62,6 @@ function getSearch(event) {
     // console.log(event.target.value);
     let search = event.target.value;
     printAllTareas(filterByName(listaTareas, search), sectionTarea)
-<<<<<<< HEAD
-=======
 }
 
 // Filtrar
@@ -78,5 +76,4 @@ function filterByName(pList, pBusqueda) {
 
 function filterByPriority(pList, pPriority) {
     return pList.filter(tarea => tarea.priority === pPriority);
->>>>>>> feature/JS-Filters
 }
