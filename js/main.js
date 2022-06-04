@@ -74,3 +74,6 @@ function filterByName(pList, pBusqueda) {
 
 // Filtrado por prioridad
 
+function filterByPriority(pList, pPriority) {
+    return pList.filter(tarea => tarea.priority === pPriority);
+}
