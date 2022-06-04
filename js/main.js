@@ -48,7 +48,7 @@ function printOneTarea(pTarea, pDom) {
     li.append(textDiv, iconosDiv);
     ul.appendChild(li);
     pDom.appendChild(ul);
-    console.log(pTarea);
+    // console.log(pTarea);
 
 }
 
@@ -62,7 +62,4 @@ function getSearch(event) {
     // console.log(event.target.value);
     let search = event.target.value;
     printAllTareas(filterByName(listaTareas, search), sectionTarea)
-    
-
-
 }
