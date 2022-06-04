@@ -51,8 +51,7 @@ function printOneTarea(pTarea, pDom) {
     // console.log(pTarea);
 
 }
-
-printAllTareas(listaTareas, sectionTarea)
+printAllTareas(listaTareas, sectionTarea);
 
 // Buscar semánticamente
 
@@ -73,7 +72,20 @@ function filterByName(pList, pBusqueda) {
 }
 
 // Filtrado por prioridad
+prioritySelect.addEventListener('change', filterByPriority);
 
 function filterByPriority(pList, pPriority) {
     return pList.filter(tarea => tarea.priority === pPriority);
 }
+
+prioritySelect.addEventListener('input', getPriority);
+
+function getPriority(event) {
+    // console.log(event.target.value);
+    let priority = event.target.value;
+    return priority;
+}
+
+// Añadir y borrar
+
+addInput.addEventListener('keydown', addTarea);
