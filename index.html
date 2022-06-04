@@ -6,16 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <div class="wrapper">
+        <h1>To-Do List!</h1>
+
+        <section id="filter-tarea">
+            <input type="search" id="search-input" class="input" placeholder="Buscar tarea...">
+            <select name="priority" id="priority-select">
+                <option>Selecciona una prioridad</option>
+
+            </select>
+        </section>
+
+        <section id="add-tarea">
+            <input type="text" id="add-input" class="input" placeholder="Agrega tu tarea.">
+        </section>
+
+        <section id="list-tarea">
+            <ul>
+                <li class="urgente">
+                    Aquí va una tarea.
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </li>
+                <li class="diaria">
+                    Aquí va una tarea.
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </li>
+                <li class="semanal">
+                    Aquí va una tarea.
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </li>
+                <li class="mensual">
+                    Aquí va una tarea.
+                    <div>
+                        <i class="fa-solid fa-check"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
 
 
 
-
-    <script src="./js/controlador.js"></script>
-    <script src="./js/vista.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/lista.js"></script>
 
 </body>
 
