@@ -122,9 +122,11 @@ addInput.addEventListener('keydown', addTarea);
 
 function addTarea(event) {
 
+
     // console.log(event.target.value); // envía lo anterior al "enter"
 
     if (event.keyCode === 13 && prioritySelect.value !== '0' && addInput.value !== '') {
+
 
         let id = 0;
 
@@ -147,6 +149,9 @@ function addTarea(event) {
         listaTareas.push(newTarea);
         lastID++;
         printAllTareas(filterByPrio(listaTareas, newTarea.priority), sectionTarea)
+        addInput.value = '';
+        searchInput.value = '';
+        // prioritySelect.value = 'Prioridad...';
         // console.log(listaTareas);
 
     }
