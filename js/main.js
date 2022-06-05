@@ -6,9 +6,12 @@ const sectionTarea = document.querySelector('#list-tarea')
 
 // Pintar lista de tareas:
 function printAllTareas(pList, pDom) {
-
-    pDom.innerHTML = '';
-    pList.forEach(tarea => printOneTarea(tarea, pDom));
+    if (pList.length !== 0) {
+        pDom.innerHTML = '';
+        pList.forEach(tarea => printOneTarea(tarea, pDom));
+    } else {
+        pDom.innerHTML = `<h4>NO HAY TAREAS EN LA LISTA</h4>`
+    }
 }
 
 function printOneTarea(pTarea, pDom) {
@@ -122,7 +125,17 @@ function addTarea(event) {
     // console.log(event.target.value); // envía lo anterior al "enter"
 
     if (event.keyCode === 13 && prioritySelect.value !== '0' && addInput.value !== '') {
-        let id = listaTareas[listaTareas.length - 1].id + 1;
+
+        let id = 0;
+
+        // if (listaTareas.length === 0) {
+        //     id = lastID + 1;
+        // } else {
+        //     id = listaTareas[listaTareas.length - 1].id + 1;
+        // };
+
+        (listaTareas.length === 0) ? id = lastID + 1 : id = listaTareas[listaTareas.length - 1].id + 1
+
         let newTarea =
         {
             id: id,
@@ -132,6 +145,7 @@ function addTarea(event) {
         };
 
         listaTareas.push(newTarea);
+        lastID++;
         printAllTareas(filterByPrio(listaTareas, newTarea.priority), sectionTarea)
         // console.log(listaTareas);
 

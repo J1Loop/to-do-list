@@ -24,3 +24,5 @@ const listaTareas = [
         priority: 4,
     },
 ]
+
+let lastID = 4;
