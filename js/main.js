@@ -72,20 +72,34 @@ function filterByName(pList, pBusqueda) {
 }
 
 // Filtrado por prioridad
-prioritySelect.addEventListener('change', filterByPriority);
+// prioritySelect.addEventListener('input', filterByPriority);
 
-function filterByPriority(pList, pPriority) {
-    return pList.filter(tarea => tarea.priority === pPriority);
-}
+// function filterByPriority(pList, pPriority) {
+//     return pList.filter(tarea => tarea.priority === parseInt(pPriority));
+// }
 
-prioritySelect.addEventListener('input', getPriority);
+// prioritySelect.addEventListener('input', getPriority);
 
-function getPriority(event) {
-    // console.log(event.target.value);
-    let priority = event.target.value;
-    return priority;
-}
+// function getPriority(event) {
+//     // console.log(event.target.value);
+//     let priority = event.target.value;
+//     if (priority !== '0') {
+//         printAllTareas(filterByPriority(listaTareas, priority), sectionTarea);
+//     } else {
+//         printAllTareas(listaTareas, sectionTarea);
+//     }
+// }
 
 // Añadir y borrar
 
-addInput.addEventListener('keydown', addTarea);
+// Añadir
+// addInput.addEventListener('keydown', addTarea);
+
+// Borrar
+const deleteBtn = document.querySelectorAll('.fa-trash');
+deleteBtn.addEventListener('click', deleteTarea);
+
+function deleteTarea(event) {
+    console.log(event.target.value);
+}
+
