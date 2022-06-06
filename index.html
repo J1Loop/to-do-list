@@ -6,16 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/lista.js"></script>
 </head>
 
 <body>
+    <div class="wrapper">
+        <h1>To-Do List!</h1>
+
+        <section id="filter-tarea">
+            <input type="search" id="search-input" class="input" placeholder="Buscar tarea...">
+            <select name="priority" id="priority-select">
+                <option value="0">Prioridad...</option>
+                <option value="1">Urgente</option>
+                <option value="2">Diaria</option>
+                <option value="3">Semanal</option>
+                <option value="4">Mensual</option>
+
+            </select>
+        </section>
+
+        <section id="add-tarea">
+            <input type="text" id="add-input" class="input" placeholder="Agrega tu tarea.">
+            <small id="obligatorios">Presionar ENTER para añadir.</small>
+        </section>
+
+        <section id="list-tarea">
+            <!-- <ul>
+                <li class="diaria">
+                    <div>
+                        <h3>Nombre: Aquí va una tarea.</h3>
+                        <br>
+                        <p> Info: Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </li>
+            </ul> -->
+        </section>
+
+    </div>
 
 
 
-
-    <script src="./js/controlador.js"></script>
-    <script src="./js/vista.js"></script>
+    <script src="./js/main.js"></script>
 
 </body>
 

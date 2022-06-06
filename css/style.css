@@ -4,8 +4,135 @@
     box-sizing: border-box
 }
  
-img {
+.wrapper {
+    background-color: #494d58;
+    max-width: 550px;
+    margin: 120px auto;
+    padding: 50px 10px 30px 10px;
+    border-radius: 7px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+body {
+    font-family: monospace;
+    background-color: #702632;
+}
+
+section {
+    margin-top: 20px;
+}
+
+section h4 {
+    text-align: center;
+    font-size: 24px;
+}
+
+h1 {
+    color: #FE7F2D;
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.search {
+    margin: auto;
+    max-width: 100%;
+    width: 500px;
+}
+
+.input {
     display: block;
-    width: 100%;
-    height: auto;
+    width: 85%;
+    margin: 0 auto;
+    font-size: 1.4em;
+    padding: 5px 10px;
+    border: 1px solid lightskyblue;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#filter-tarea select {
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 1.4em;
+    background-color: white;
+    border: 1px solid lightskyblue;
+    border-radius: 7px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#add-tarea {
+    text-align: center;
+    color: white;
+}
+
+
+#filter-tarea .input:focus {
+    outline: 3px solid rgb(0, 170, 255);
+}
+
+#add-tarea .input:focus {
+    outline: 3px solid lime;
+}
+
+.input::placeholder {
+    opacity: 0.125;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    font-size: 16px;
+    margin: 5px;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-solid {
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+#list-tarea {
+    margin-top: 100px;
+}
+
+#list-tarea ul li div:last-child {
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    min-width: 50px;
+}
+
+#list-tarea ul li :is(h3,p) {
+    padding-right: 5px;
+}
+
+
+#list-tarea ul li.urgente {
+    border: 2px solid red;
+    background-color: lightcoral;
+}
+
+#list-tarea ul li.diaria {
+    border: 2px solid goldenrod;
+    background-color: lightgoldenrodyellow;
+}
+
+#list-tarea ul li.semanal {
+    border: 2px solid lime;
+    background-color: lightgreen;
+}
+
+#list-tarea ul li.mensual {
+    border: 2px solid #31b9ea;    
+    background-color: lightskyblue;
 }
