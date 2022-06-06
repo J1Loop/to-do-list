@@ -8,12 +8,12 @@
     background-color: #494d58;
     max-width: 550px;
     margin: 120px auto;
-    padding: 50px 10px;
+    padding: 50px 10px 30px 10px;
     border-radius: 7px;
     border: 1px solid black;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-
 }
+
 body {
     font-family: monospace;
     background-color: #702632;
@@ -65,6 +65,12 @@ h1 {
     margin-top: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
+#add-tarea {
+    text-align: center;
+    color: white;
+}
+
 
 #filter-tarea .input:focus {
     outline: 3px solid rgb(0, 170, 255);

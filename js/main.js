@@ -24,20 +24,13 @@ function printOneTarea(pTarea, pDom) {
     let h3 = document.createElement('h3');
     h3.innerText = `${pTarea.name}`;
 
-    let p = document.createElement('p');
-    p.innerText = `${pTarea.info}`;
-
     let iconosDiv = document.createElement('div');
-    let check = document.createElement('i');
-    check.classList.add('fa-solid', 'fa-check');
-    check.dataset.id = pTarea.id;
     let trash = document.createElement('i');
     trash.classList.add('fa-solid', 'fa-trash');
     trash.dataset.id = pTarea.id;
     trash.addEventListener('click', deleteTarea);
 
     // iconosDiv.innerHTML = `
-    // <i data-id="${pTarea.id}" class="fa-solid fa-check"></i>
     // <i data-id="${pTarea.id}" class="fa-solid fa-trash"></i>
     // `;
 
@@ -59,13 +52,11 @@ function printOneTarea(pTarea, pDom) {
             break;
     }
 
-    textDiv.append(h3, p);
-    iconosDiv.append(check, trash);
+    textDiv.appendChild(h3);
+    iconosDiv.appendChild(trash);
     li.append(textDiv, iconosDiv);
     ul.appendChild(li);
     pDom.appendChild(ul);
-    // console.log(pTarea);
-
 }
 printAllTareas(listaTareas, sectionTarea);
 
@@ -121,39 +112,33 @@ function getPriority(event) {
 addInput.addEventListener('keydown', addTarea);
 
 function addTarea(event) {
-
-
     // console.log(event.target.value); // envía lo anterior al "enter"
+    let lastID = 4; // a 4 porque nuestro array original tiene 4, luego le sumamos.
+    let storageID = localStorage.getItem('lastID');
+    if (storageID) {
+        lastID = JSON.parse(localStorage.getItem('lastID'));
+    }
 
     if (event.keyCode === 13 && prioritySelect.value !== '0' && addInput.value !== '') {
 
-
-        let id = 0;
-
-        // if (listaTareas.length === 0) {
-        //     id = lastID + 1;
-        // } else {
-        //     id = listaTareas[listaTareas.length - 1].id + 1;
-        // };
-
-        (listaTareas.length === 0) ? id = lastID + 1 : id = listaTareas[listaTareas.length - 1].id + 1
-
         let newTarea =
         {
-            id: id,
+            id: lastID,
             name: event.target.value,
-            info: '',
             priority: parseInt(prioritySelect.value),
         };
 
         listaTareas.push(newTarea);
         lastID++;
-        printAllTareas(filterByPrio(listaTareas, newTarea.priority), sectionTarea)
         addInput.value = '';
         searchInput.value = '';
-        // prioritySelect.value = 'Prioridad...';
+        printAllTareas(filterByPrio(listaTareas, newTarea.priority), sectionTarea)
+
+        // Local Storage
         // console.log(listaTareas);
 
+        localStorage.setItem('tareas', JSON.stringify(listaTareas));
+        localStorage.setItem('lastID', JSON.stringify(lastID));
     }
 }
 
@@ -169,5 +154,20 @@ function deleteTarea(event) {
 
     listaTareas.splice(posicionBusqueda, 1);
     printAllTareas(listaTareas, sectionTarea);
+    addInput.value = '';
+    searchInput.value = '';
 
+    // Local Storage
+
+    localStorage.setItem('tareas', JSON.stringify(listaTareas));
 }
+
+// Local Storage
+let storage = localStorage.getItem('tareas');
+
+if (storage) {
+    listaTareas = JSON.parse(localStorage.getItem('tareas'));
+    printAllTareas(listaTareas, sectionTarea);
+}
+
+
