@@ -2,7 +2,8 @@
 const searchInput = document.querySelector('#search-input');
 const prioritySelect = document.querySelector('#priority-select');
 const addInput = document.querySelector('#add-input');
-const sectionTarea = document.querySelector('#list-tarea')
+const sectionTarea = document.querySelector('#list-tarea');
+const obligatorios = document.querySelector('#obligatorios');
 
 // Pintar lista de tareas:
 function printAllTareas(pList, pDom) {
@@ -108,12 +109,17 @@ function getPriority(event) {
 // Añadir y borrar
 
 // Añadir
+let span = document.createElement('span');
+span.innerText = 'Los campos no pueden estar vacíos.';
+span.style.color = 'red';
+obligatorios.appendChild(span);
+span.style.display = 'none';
 
 addInput.addEventListener('keydown', addTarea);
 
 function addTarea(event) {
     // console.log(event.target.value); // envía lo anterior al "enter"
-    let lastID = 4; // a 4 porque nuestro array original tiene 4, luego le sumamos.
+    let lastID = 5; // a 5 porque nuestro array original tiene 4, luego le sumamos.
     let storageID = localStorage.getItem('lastID');
     if (storageID) {
         lastID = JSON.parse(localStorage.getItem('lastID'));
@@ -139,6 +145,12 @@ function addTarea(event) {
 
         localStorage.setItem('tareas', JSON.stringify(listaTareas));
         localStorage.setItem('lastID', JSON.stringify(lastID));
+    } else if (event.keyCode === 13 && (addInput.value === '' || prioritySelect.value === '0')) {
+        // console.log(obligatorios);
+        span.style.display = 'block';
+        setTimeout(() => {
+            span.style.display = 'none';
+        }, 2500)
     }
 }
 
